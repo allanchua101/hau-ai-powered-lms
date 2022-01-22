@@ -82,6 +82,12 @@ export default {
 
 <style lang="scss">
 .hau.hau--app {
-  padding-top: 64px;
+  padding-top: 52px;
+}
+
+@media (min-width: 720px) {
+  .hau.hau--app {
+    padding-top: 64px;
+  }
 }
 </style>
