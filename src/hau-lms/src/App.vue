@@ -51,13 +51,17 @@
             <v-icon>{{ item.icon }}</v-icon>
           </v-list-item-icon>
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            <v-list-item-title>
+              <router-link :to="item.route">
+                {{ item.title }}
+              </router-link>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
     <v-main>
-      <v-router></v-router>
+      <router-view />
     </v-main>
   </v-app>
 </template>
@@ -71,9 +75,13 @@ export default {
   data: () => ({
     drawer: true,
     items: [
-      { title: "Home", icon: "mdi-home-city" },
-      { title: "My Account", icon: "mdi-account" },
-      { title: "Users", icon: "mdi-account-group-outline" },
+      { title: "Courses", icon: "mdi-book", route: "/courses" },
+      { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
+      {
+        title: "About our Project",
+        icon: "mdi-information-outline",
+        route: "/about-us",
+      },
     ],
     mini: true,
   }),
