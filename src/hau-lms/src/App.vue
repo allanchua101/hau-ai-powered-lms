@@ -85,7 +85,7 @@ export default {
   padding-top: 52px;
 }
 
-@media (min-width: 720px) {
+@media (min-width: 960px) {
   .hau.hau--app {
     padding-top: 64px;
   }
