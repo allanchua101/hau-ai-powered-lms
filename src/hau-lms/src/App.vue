@@ -10,12 +10,6 @@
           transition="scale-transition"
           width="40"
         />
-        <v-img
-          alt="HAU LMS"
-          class="shrink mt-0 pt-0 ml-2 hidden-sm-and-down"
-          contain
-          src="imgs/company-name.svg"
-        />
       </div>
       <v-spacer></v-spacer>
       <v-btn
