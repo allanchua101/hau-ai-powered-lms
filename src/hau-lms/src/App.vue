@@ -1,22 +1,20 @@
 <template>
   <v-app class="hau hau--app">
-    <v-app-bar app color="primary" dark elevation="0">
+    <v-app-bar app color="#272727" dark elevation="0">
       <div class="d-flex align-center">
         <v-img
           alt="Vuetify Logo"
           class="shrink mr-2"
           contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
+          src="imgs/logo.svg"
           transition="scale-transition"
           width="40"
         />
         <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
+          alt="HAU LMS"
+          class="shrink mt-0 pt-0 ml-2 hidden-sm-and-down"
           contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
+          src="imgs/company-name.svg"
         />
       </div>
       <v-spacer></v-spacer>
