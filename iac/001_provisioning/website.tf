@@ -228,9 +228,13 @@ resource "aws_cloudfront_distribution" "website_cdn" {
   }
 }
 
+#   _____  _   _  _____ 
+#  |  __ \| \ | |/ ____|
+#  | |  | |  \| | (___  
+#  | |  | | . ` |\___ \ 
+#  | |__| | |\  |____) |
+#  |_____/|_| \_|_____/ 
 
-
-# Route53 Alias
 data "aws_route53_zone" "base_zone" {
   name = var.host_name
 }
