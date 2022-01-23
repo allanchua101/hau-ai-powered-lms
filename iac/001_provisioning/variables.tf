@@ -18,7 +18,7 @@ variable "host_name" {
   }
 }
 
-variable sub_domain {
+variable "sub_domain" {
   type = string
   description = "Subdomain of project eg. dev.stackoverflow, prd.stackoverflow.com"
 
