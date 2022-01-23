@@ -1,0 +1,6 @@
+# Copy this file and rename it to env.tfvars (env can be any of the following dev, uat, prd)
+project_name="" # Put your project name here eg. foo-ha-cf-demo
+host_name="" # Put your domain name here eg. stackoverflow.com
+sub_domain="" # Put your sub-domain name here eg. dev.stackoverflow.com
+acm_cert_arn="" # Put your ARN here eg: arn:aws:acm:us-east-1:<YOUR_AWS_ACCOUNT_ID>:certificate/<YOUR_CERT_ID>
+environment="dev" # Put your environment prefix here eg: dev, uat, prd
