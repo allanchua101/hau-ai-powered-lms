@@ -67,12 +67,13 @@ export default {
   data: () => ({
     drawer: true,
     items: [
+      { title: "Home", icon: "mdi-home", route: "/" },
       { title: "Courses", icon: "mdi-book", route: "/courses" },
       { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
       {
         title: "About our Project",
         icon: "mdi-information-outline",
-        route: "/about-us",
+        route: "/about",
       },
     ],
     mini: true,
