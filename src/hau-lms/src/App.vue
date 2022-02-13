@@ -12,9 +12,26 @@
         />
       </div>
       <v-spacer></v-spacer>
+      <v-menu v-if="isMobile" bottom left>
+        <template v-slot:activator="{ on, attrs }">
+          <v-btn dark icon v-bind="attrs" v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item v-for="(item, i) in items" :key="i" :to="item.route">
+            <v-list-item-icon>
+              <v-icon>{{ item.icon }}</v-icon>
+            </v-list-item-icon>
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
     </v-app-bar>
     <!-- Drawer -->
     <v-navigation-drawer
+      v-if="!isMobile"
       v-model="drawer"
       permanent
       absolute
@@ -51,7 +68,6 @@ export default {
   name: "App",
   components: {},
   data: () => ({
-    drawer: true,
     items: [
       { title: "Courses", icon: "mdi-home", route: "/" },
       { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
@@ -61,6 +77,7 @@ export default {
         route: "/about",
       },
     ],
+    drawer: true,
     mini: true,
   }),
   computed: {
@@ -71,6 +88,11 @@ export default {
 
       return "";
     },
+    isMobile() {
+      let bpName = this.$vuetify.breakpoint.name;
+
+      return bpName === "xs" || bpName === "sm";
+    },
   },
 };
 </script>
@@ -78,11 +100,20 @@ export default {
 <style lang="scss">
 .hau.hau--app {
   padding-top: 52px;
+
+  .container.hau {
+    padding: 4px;
+  }
 }
 
 @media (min-width: 960px) {
   .hau.hau--app {
     padding-top: 64px;
+
+    .container.hau {
+      padding: 12px;
+      padding-left: 64px;
+    }
   }
 }
 </style>

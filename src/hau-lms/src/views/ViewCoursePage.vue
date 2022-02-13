@@ -118,7 +118,6 @@ export default {
 <style lang="scss">
 .hau.hau-view-course-page {
   max-width: 960px;
-  padding-left: 64px;
 
   .hau.hau-title {
     font-size: 20px;
@@ -183,6 +182,7 @@ export default {
 @media (min-width: 960px) {
   .hau.hau-view-course-page {
     max-width: 1260px;
+    padding-left: 64px;
     padding-left: 0;
 
     .hau.hau-title {
