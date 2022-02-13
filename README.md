@@ -1,6 +1,6 @@
 # An AI-powered Learning Management System
 
-<img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/docs/Voice%20Banner.png"
+<img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/Voice%20Banner.png"
      alt="A diagram explaining our core feature which is a Voice-control bot"
      style="margin-right: auto; margin-left: auto;" />
 
