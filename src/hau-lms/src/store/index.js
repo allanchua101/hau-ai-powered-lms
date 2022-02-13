@@ -5,17 +5,21 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    user: {
-      firstName: "John",
-      lastName: "Doe",
-    },
+    firstName: "John",
+    lastName: "Doe",
     courses: [],
+    activeCourse: "",
   },
-  mutations: {},
+  mutations: {
+    setActiveCource(state, payload) {
+      state.activeCourse = payload.activeCourse;
+    },
+  },
   actions: {},
+  modules: {},
   getters: {
-    fullName: function () {
-      return this.user.firstName + " " + this.user.lastName;
+    fullName: (state) => {
+      return state.firstName + " " + state.lastName;
     },
   },
 });
