@@ -20,15 +20,6 @@
       absolute
       :mini-variant.sync="mini"
     >
-      <v-list-item class="px-2">
-        <v-list-item-avatar>
-          <v-img src="https://randomuser.me/api/portraits/men/85.jpg"></v-img>
-        </v-list-item-avatar>
-        <v-list-item-title>{{ fullName }}</v-list-item-title>
-        <v-btn icon @click.stop="mini = !mini">
-          <v-icon>mdi-chevron-left</v-icon>
-        </v-btn>
-      </v-list-item>
       <v-divider></v-divider>
       <v-list dense>
         <v-list-item
