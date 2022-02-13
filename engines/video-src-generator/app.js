@@ -8,13 +8,24 @@ readXlsxFile("../../content/Videos.xlsx").then((rows) => {
       return {
         author: row[0],
         courseTitle: row[1],
-        videoTitle: row[2],
-        link: row[3],
-        description: row[4],
+        courseBanner: row[2],
+        videoTitle: row[3],
+        link: row[4],
+        description: row[5],
       };
     })
     .filter((vid) => {
       return vid.videoTitle !== null && vid.videoTitle !== "Video Title";
+    })
+    .map((vid) => {
+      let rx =
+        /^.*(?:(?:youtu\.be\/|v\/|vi\/|u\/\w\/|embed\/)|(?:(?:watch)?\?v(?:i)?=|\&v(?:i)?=))([^#\&\?]*).*/;
+      let match = vid.link.match(rx);
+
+      return {
+        ...vid,
+        youtubeID: match[1],
+      };
     });
   let courses = rawVideos.reduce((groups, vid) => {
     let index = groups.findIndex((g) => g.courseTitle === vid.courseTitle);
@@ -26,6 +37,7 @@ readXlsxFile("../../content/Videos.xlsx").then((rows) => {
         videoTitle: vid.videoTitle,
         link: vid.link,
         description: vid.description,
+        youtubeID: vid.youtubeID,
       };
 
       groups[index].videos.push(newVid);
@@ -34,12 +46,14 @@ readXlsxFile("../../content/Videos.xlsx").then((rows) => {
         id: groups.length + 1,
         courseTitle: vid.courseTitle,
         author: vid.author,
+        courseBanner: vid.courseBanner,
         videos: [
           {
             id: 1,
             videoTitle: vid.videoTitle,
             link: vid.link,
             description: vid.description,
+            youtubeID: vid.youtubeID,
           },
         ],
       });

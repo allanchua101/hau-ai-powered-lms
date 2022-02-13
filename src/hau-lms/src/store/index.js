@@ -9,22 +9,44 @@ export default new Vuex.Store({
     firstName: "John",
     lastName: "Doe",
     courses: [...courses],
-    activeCourse: "",
+    activeCourseID: null,
+    activeVideoID: 1,
   },
   mutations: {
-    setActiveCource(state, payload) {
-      state.activeCourse = payload.activeCourse;
+    setActiveCourse(state, courseID) {
+      state.activeCourseID = courseID;
+    },
+    setActiveVideo(state, videoID) {
+      state.activeVideoID = videoID;
     },
   },
-  actions: {},
+  actions: {
+    setActiveCourseID({ commit }, id) {
+      commit("setActiveCourse", id);
+    },
+    setActiveVideoID({ commit }, id) {
+      commit("setActiveVideo", id);
+    },
+  },
   modules: {},
   getters: {
     fullName: (state) => {
       return state.firstName + " " + state.lastName;
     },
     courseList: (state) => {
-      console.log(JSON.stringify(state.courses));
       return state.courses;
+    },
+    activeCourse: (state) => {
+      return state.courses.find((course) => course.id === state.activeCourseID);
+    },
+    activeVideo: (state) => {
+      let course = state.courses.find(
+        (course) => course.id === state.activeCourseID
+      );
+
+      if (!course) return null;
+
+      return course.videos.find((video) => video.id === state.activeVideoID);
     },
   },
 });
