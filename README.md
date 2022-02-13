@@ -17,6 +17,15 @@ HAU AI collator is a POC used for testing the following features:
 
 A diagram explaining our core feature which is a Voice-control bot
 
+### Technology Stack
+
+- VueJS
+- Vuetify
+- NodeJS
+- Vue Youtube Embed [(NPM)](https://www.npmjs.com/package/vue-youtube-embed)
+- Natural JS [(NPM)](https://www.npmjs.com/package/natural)
+- Annyang [(NPM)](https://www.npmjs.com/package/annyang)
+
 ### Project Motivation
 
 This project is motivated by the need to submit a final output for our e-learning subject in our MIT class at [Holy Angel University](https://www.hau.edu.ph/).
