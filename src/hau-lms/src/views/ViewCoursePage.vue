@@ -7,8 +7,9 @@
             <v-row>
               <v-col v-if="!!activeVideo" cols="12" md="8" lg="9">
                 <youtube
+                  ref="testYT"
                   :video-id="activeVideo.youtubeID"
-                  @ready="ready"
+                  :player-vars="{ autoplay: 1 }"
                   class="hau hau-yt-player"
                 ></youtube>
                 <h1 class="hau hau-title mt-4 mb-4">
@@ -60,6 +61,8 @@
 </template>
 
 <script>
+import { findSkill } from "../voice/voice-commands";
+
 function getParameterByName(name, url = window.location.href) {
   name = name.replace(/[\\[\]]/g, "\\$&");
   var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -98,28 +101,88 @@ export default {
     activeVideo() {
       return this.$store.getters.activeVideo;
     },
+    player() {
+      return this.$refs.testYT.player;
+    },
   },
   data: () => {
     return {
       id: null,
-      player: null,
     };
   },
   mounted() {
-    this.id = parseInt(getParameterByName("id"));
-    this.$store.dispatch("setActiveCourseID", this.id);
+    let me = this;
+
+    me.id = parseInt(getParameterByName("id"));
+    me.$store.dispatch("setActiveCourseID", this.id);
+
+    if (window.annyang) {
+      try {
+        let commands = {
+          "John *anything": async (text) => {
+            let command = text.toLowerCase();
+            let skill = findSkill(me, command);
+
+            console.log(`Recognized ${command}`);
+            console.log(skill);
+
+            if (skill) {
+              await skill.action();
+            }
+          },
+        };
+
+        window.annyang.addCommands(commands);
+      } catch (err) {
+        console.log(`Annyang is having troubles`);
+      } finally {
+        window.annyang.setLanguage("en");
+        window.annyang.start();
+      }
+    }
   },
   methods: {
     async onClick(id) {
-      this.$store.dispatch("setActiveVideoID", id);
+      await this.$store.dispatch("setActiveVideoID", id);
 
       if (this.player) {
-        await sleep();
         this.player.playVideo();
       }
     },
-    ready(event) {
-      this.player = event.target;
+
+    async next() {
+      await this.$store.dispatch("playNextVideo");
+      await sleep(250);
+
+      if (this.player) {
+        this.player.playVideo();
+        this.player.unMute();
+      }
+    },
+    async back() {
+      await this.$store.dispatch("playPreviousVideo");
+      await sleep(250);
+
+      if (this.player) {
+        this.player.playVideo();
+        this.player.unMute();
+      }
+    },
+    async pause() {
+      if (this.player) {
+        this.player.pauseVideo();
+      }
+    },
+    async play() {
+      if (this.player) {
+        this.player.playVideo();
+        this.player.unMute();
+      }
+    },
+    async stop() {
+      if (this.player) {
+        this.player.stopVideo();
+      }
     },
   },
 };

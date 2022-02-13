@@ -28,6 +28,22 @@ export default new Vuex.Store({
     setActiveVideoID({ commit }, id) {
       commit("setActiveVideo", id);
     },
+    async playNextVideo({ commit, state }) {
+      let maxID = state.courses[state.activeCourseID - 1].videos.length;
+
+      if (state.activeVideoID === maxID) {
+        return;
+      }
+
+      commit("setActiveVideo", state.activeVideoID + 1);
+    },
+    async playPreviousVideo({ commit, state }) {
+      if (state.activeVideoID === 1) {
+        return;
+      }
+
+      commit("setActiveVideo", state.activeVideoID - 1);
+    },
   },
   modules: {},
   getters: {
