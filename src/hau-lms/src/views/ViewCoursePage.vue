@@ -131,9 +131,6 @@ export default {
   }
 
   .hau.hau-video-list {
-    max-height: 600px;
-    overflow-y: scroll;
-
     /* width */
     &::-webkit-scrollbar {
       width: 10px;
@@ -194,6 +191,11 @@ export default {
 
     .hau.hau-subtitle {
       font-size: 16px;
+    }
+
+    .hau.hau-video-list {
+      max-height: 600px;
+      overflow-y: scroll;
     }
 
     .hau.hau-yt-player {
