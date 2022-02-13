@@ -62,8 +62,7 @@ export default {
   data: () => ({
     drawer: true,
     items: [
-      { title: "Home", icon: "mdi-home", route: "/" },
-      { title: "Courses", icon: "mdi-book", route: "/courses" },
+      { title: "Courses", icon: "mdi-home", route: "/" },
       { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
       {
         title: "About our Project",
