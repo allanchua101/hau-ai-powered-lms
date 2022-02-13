@@ -11,7 +11,7 @@
                   @ready="ready"
                   class="hau hau-yt-player"
                 ></youtube>
-                <h1 class="hau hau-title mt-4 mb-2">
+                <h1 class="hau hau-title mt-4 mb-4">
                   {{ activeVideo.videoTitle }}
                 </h1>
                 <h2 class="hau hau-subtitle mb-2">
@@ -31,7 +31,7 @@
                       <v-icon>mdi-play-circle-outline</v-icon>
                     </v-list-item-avatar>
                     <v-tooltip
-                      top
+                      right
                       max-width="320px"
                       content-class="hau hau-tooltip"
                     >
@@ -125,7 +125,8 @@ export default {
   }
 
   .hau.hau-subtitle {
-    font-size: 14px;
+    font-size: 12px;
+    font-weight: bold;
     color: #5a5959;
   }
 
@@ -190,7 +191,7 @@ export default {
     }
 
     .hau.hau-subtitle {
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .hau.hau-video-list {
