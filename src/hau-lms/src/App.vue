@@ -1,18 +1,20 @@
 <template>
   <v-app class="hau hau--app">
     <!-- Application bar -->
-    <v-app-bar app color="#272727" dark elevation="0">
+    <v-app-bar app color="#272727" dark elevation="0" dense>
       <div class="d-flex align-center">
         <v-img
-          class="shrink mr-2"
+          class="shrink mr-2 hau hau-logo"
           contain
           src="imgs/logo.svg"
           transition="scale-transition"
-          width="40"
+          width="32"
+          @click="onLogoClick"
         />
+        HAU AI - Collator
       </div>
       <v-spacer></v-spacer>
-      <v-menu v-if="isMobile" bottom left>
+      <v-menu v-if="isMobile" bottom left transition="slide-y-transition">
         <template v-slot:activator="{ on, attrs }">
           <v-btn dark icon v-bind="attrs" v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -94,25 +96,36 @@ export default {
       return bpName === "xs" || bpName === "sm";
     },
   },
+  methods: {
+    onLogoClick() {
+      this.$router.push({
+        path: "/",
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
 .hau.hau--app {
-  padding-top: 52px;
+  padding-top: 40px;
 
   .hau.hau-main-view {
-    padding-top: 0px !important;
+    padding-top: 24px !important;
   }
 
   .container.hau {
-    padding: 4px;
+    padding: 0 8px;
   }
+}
+
+.hau.hau-logo {
+  cursor: pointer;
 }
 
 @media (min-width: 960px) {
   .hau.hau--app {
-    padding-top: 64px;
+    padding-top: 48px;
 
     .hau.hau-main-view {
       padding-top: 12px !important;

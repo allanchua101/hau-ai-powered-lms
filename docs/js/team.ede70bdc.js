@@ -1,2 +1,0 @@
-(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["team"],{"0767":function(n,a,e){"use strict";e.r(a);var t=function(){var n=this,a=n.$createElement,e=n._self._c||a;return e("v-container",[e("v-row",[e("v-col",{attrs:{cols:"12"}},[e("h1",[n._v("Team")])])],1)],1)},o=[],l=e("2877"),r=e("6544"),c=e.n(r),s=e("62ad"),u=e("a523"),i=e("0fd9"),w={},p=Object(l["a"])(w,t,o,!1,null,null,null);a["default"]=p.exports;c()(p,{VCol:s["a"],VContainer:u["a"],VRow:i["a"]})}}]);
-//# sourceMappingURL=team.ede70bdc.js.map
