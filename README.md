@@ -7,6 +7,7 @@ HAU AI collator is a POC used for testing the following features:
 - Making Youtube videos play using VueJS components
 - Implement a voice command recognition system that allows remote control of the learning materials
 - Implement a chatbot that responds to queries to enhance learning experience of viewers.
+- Showcase different edge-based AI capabilities and prove that we can build AI-enabled frontends with no backends
 
 ### Voice Control
 
