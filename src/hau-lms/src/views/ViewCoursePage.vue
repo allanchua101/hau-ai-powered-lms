@@ -160,7 +160,10 @@ export default {
   }
 
   .hau.hau-yt-player {
-    border: 1px solid white;
+    border: 4px solid #202024;
+    background-color: #202024;
+    padding: 0;
+    margin: 0;
     border-radius: 4px;
     overflow: clip;
 

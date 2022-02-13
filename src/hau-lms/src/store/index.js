@@ -15,6 +15,7 @@ export default new Vuex.Store({
   mutations: {
     setActiveCourse(state, courseID) {
       state.activeCourseID = courseID;
+      state.activeVideoID = 1;
     },
     setActiveVideo(state, videoID) {
       state.activeVideoID = videoID;
