@@ -57,7 +57,7 @@
       </v-list>
     </v-navigation-drawer>
     <!-- Router -->
-    <v-main>
+    <v-main class="hau hau-main-view">
       <router-view />
     </v-main>
   </v-app>
@@ -101,6 +101,10 @@ export default {
 .hau.hau--app {
   padding-top: 52px;
 
+  .hau.hau-main-view {
+    padding-top: 0px !important;
+  }
+
   .container.hau {
     padding: 4px;
   }
@@ -109,6 +113,10 @@ export default {
 @media (min-width: 960px) {
   .hau.hau--app {
     padding-top: 64px;
+
+    .hau.hau-main-view {
+      padding-top: 12px !important;
+    }
 
     .container.hau {
       padding: 12px;
