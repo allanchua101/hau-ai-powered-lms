@@ -1,8 +1,16 @@
-## An AI-powered Learning Management System [(LINK)](https://allanchua101.github.io/hau-ai-powered-lms/)
+## HAU AI Collator
+
+[(Live Link)](https://allanchua101.github.io/hau-ai-powered-lms/)
+
+HAU AI collator is a POC used for testing the following features:
+
+- Making Youtube videos play using VueJS components
+- Implement a voice command recognition system that allows remote control of the learning materials
+- Implement a chatbot that responds to queries to enhance learning experience of viewers.
 
 <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/Voice%20Banner.png"
      alt="A diagram explaining our core feature which is a Voice-control bot"
-     style="margin-right: auto; margin-left: auto;" />
+     style="margin-right: auto; margin-left: auto; max-width: 256px;" />
 
 A diagram explaining our core feature which is a Voice-control bot
 
