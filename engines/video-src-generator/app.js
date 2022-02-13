@@ -17,13 +17,31 @@ readXlsxFile("../../content/Videos.xlsx").then((rows) => {
       return vid.videoTitle !== null && vid.videoTitle !== "Video Title";
     });
   let courses = rawVideos.reduce((groups, vid) => {
-    let existingCourse = groups.find((g) => g.courseTitle === vid.courseTitle);
+    let index = groups.findIndex((g) => g.courseTitle === vid.courseTitle);
 
-    if (!existingCourse) {
+    if (index !== -1) {
+      let videoCount = groups[index].videos.length;
+      let newVid = {
+        id: videoCount + 1,
+        videoTitle: vid.videoTitle,
+        link: vid.link,
+        description: vid.description,
+      };
+
+      groups[index].videos.push(newVid);
+    } else {
       groups.push({
         id: groups.length + 1,
         courseTitle: vid.courseTitle,
         author: vid.author,
+        videos: [
+          {
+            id: 1,
+            videoTitle: vid.videoTitle,
+            link: vid.link,
+            description: vid.description,
+          },
+        ],
       });
     }
 
