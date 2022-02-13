@@ -69,6 +69,10 @@ function getParameterByName(name, url = window.location.href) {
   return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+async function sleep(ms = 250) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 export default {
   computed: {
     isCourseSelected() {
@@ -98,6 +102,7 @@ export default {
   data: () => {
     return {
       id: null,
+      player: null,
     };
   },
   mounted() {
@@ -105,8 +110,13 @@ export default {
     this.$store.dispatch("setActiveCourseID", this.id);
   },
   methods: {
-    onClick(id) {
+    async onClick(id) {
       this.$store.dispatch("setActiveVideoID", id);
+
+      if (this.player) {
+        await sleep();
+        this.player.playVideo();
+      }
     },
     ready(event) {
       this.player = event.target;
@@ -154,6 +164,7 @@ export default {
 
   .hau.hau-video {
     border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
   }
 
   .hau.hau-yt-player {
@@ -187,7 +198,7 @@ export default {
     padding-left: 0;
 
     .hau.hau-title {
-      font-size: 24px;
+      font-size: 20px;
     }
 
     .hau.hau-subtitle {
