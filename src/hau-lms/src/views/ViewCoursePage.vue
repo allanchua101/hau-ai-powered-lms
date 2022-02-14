@@ -136,7 +136,7 @@ export default {
       } catch (err) {
         console.log(`Annyang is having troubles`);
       } finally {
-        window.annyang.setLanguage("en");
+        window.annyang.setLanguage("en-PH");
         window.annyang.start();
       }
     }

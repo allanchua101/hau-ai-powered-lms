@@ -1,9 +1,15 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+import Courses from "../views/Courses.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: "/",
+    name: "Home",
+    component: Courses,
+  },
   {
     path: "/about",
     name: "About",
@@ -17,12 +23,6 @@ const routes = [
     path: "/team",
     name: "Team",
     component: () => import(/* webpackChunkName: "team" */ "../views/Team.vue"),
-  },
-  {
-    path: "/",
-    name: "Home",
-    component: () =>
-      import(/* webpackChunkName: "courses" */ "../views/Courses.vue"),
   },
   {
     path: "/course/view/",
