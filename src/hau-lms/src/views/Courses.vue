@@ -35,19 +35,27 @@
           </v-card>
         </v-slide-y-transition>
       </v-col>
-      <!-- Add a list of cards that present information available courses -->
+      <v-col v-if="!hasCourses" cols="12" class="text-center">
+        <EmptyIcon class="hau hau-empty mt-12" />
+        <p>We can't find courses that matches your search term.</p>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
 import CourseIcon from "../icons/CoursesIcon.vue";
+import EmptyIcon from "../icons/EmptyIcon.vue";
 
 export default {
   components: {
     CourseIcon,
+    EmptyIcon,
   },
   computed: {
+    hasCourses() {
+      return this.courseList.length > 0;
+    },
     courseList() {
       if (this.filterText) {
         let cleansedText = this.filterText.toLowerCase();
@@ -104,6 +112,11 @@ $secondary-color: #5a5959;
   .hau.hau-course-author {
     font-size: 12px;
     color: $secondary-color;
+  }
+
+  .hau.hau-empty {
+    max-width: 96px;
+    margin: auto;
   }
 }
 

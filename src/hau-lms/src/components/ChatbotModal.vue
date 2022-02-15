@@ -14,7 +14,7 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </v-toolbar>
-      <v-card-text class="mb-0">
+      <v-card-text class="mb-0 hau hau-chatbot-card">
         <v-row>
           <v-col cols="12">
             <v-list ref="chatList" v-if="!isEmptyBox" class="hau hau-chat-list">
@@ -23,21 +23,14 @@
                 :key="msg.id"
                 class="pl-0"
               >
-                <!-- Chatbot icon -->
-                <v-list-item-icon v-if="!msg.isUser">
-                  <v-avatar color="#710e1d" size="36">
-                    <v-icon dark small>mdi-robot</v-icon>
-                  </v-avatar>
-                </v-list-item-icon>
                 <!-- Chatbot messages -->
                 <v-list-item-content
                   v-if="!msg.isUser"
                   class="d-flex flex-column align-content-start"
                 >
-                  <v-spacer></v-spacer>
                   <v-list-item-title
                     v-text="msg.text"
-                    class="hau hau-user-chat align-self-start text-left"
+                    class="hau hau-bot-chat align-self-start text-left"
                   ></v-list-item-title>
                 </v-list-item-content>
                 <!-- User messages -->
@@ -54,7 +47,7 @@
               </v-list-item>
             </v-list>
             <ChatIcon v-if="isEmptyBox" class="hau hau-empty-chat" />
-            <p v-if="isEmptyBox" class="text-center">
+            <p v-if="isEmptyBox" class="text-center mr-4">
               You have no messages yet. Type something on the box below to speak
               with John our chatbot.
             </p>
@@ -66,7 +59,7 @@
           rounded
           rows="1"
           dense
-          class="mt-4"
+          class="mt-4 mr-4"
           hide-details
           auto-grow
           v-model="message"
@@ -128,8 +121,20 @@ export default {
     font-size: 14px;
   }
 
+  .hau.hau-chatbot-card {
+    padding-right: 0;
+    overflow-x: hidden;
+  }
+
   .hau.hau-user-chat {
     background-color: #710e1d;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 26px;
+  }
+
+  .hau.hau-bot-chat {
+    background-color: #202024;
     color: white;
     padding: 10px 12px;
     border-radius: 26px;
