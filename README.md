@@ -24,6 +24,7 @@ A diagram explaining our core feature which is a Voice-control bot
 - NodeJS
 - Vue Youtube Embed [(NPM)](https://www.npmjs.com/package/vue-youtube-embed)
 - Natural JS [(NPM)](https://www.npmjs.com/package/natural)
+- ML Classify Text [(Github)](https://github.com/andreekeberg/ml-classify-text-js)
 - Annyang [(NPM)](https://www.npmjs.com/package/annyang)
 
 ### Project Motivation
