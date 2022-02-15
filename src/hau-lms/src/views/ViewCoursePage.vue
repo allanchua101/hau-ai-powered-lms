@@ -3,6 +3,36 @@
     <v-row>
       <v-col cols="12">
         <v-card elevation="0">
+          <v-toolbar color="#710e1d" dark elevation="0" dense>
+            <!-- Back Button -->
+            <v-tooltip left>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on" @click="onBackClick">
+                  <v-icon>mdi-arrow-left</v-icon>
+                </v-btn>
+              </template>
+              <span>Go back</span>
+            </v-tooltip>
+            <v-spacer></v-spacer>
+            <!-- Chatbot button -->
+            <v-tooltip top>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-chat</v-icon>
+                </v-btn>
+              </template>
+              <span>Have a discussion with our chatbot</span>
+            </v-tooltip>
+            <!-- Voice Button -->
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-microphone-outline</v-icon>
+                </v-btn>
+              </template>
+              <span>Learn more about our voice bot</span>
+            </v-tooltip>
+          </v-toolbar>
           <v-card-text>
             <v-row>
               <v-col v-if="!!activeVideo" cols="12" md="8" lg="9">
@@ -116,15 +146,11 @@ export default {
     me.$store.dispatch("setActiveCourseID", this.id);
 
     if (window.annyang) {
-      console.log("I'm installed again");
       try {
         let commands = {
           "John *anything": async function (text) {
             let command = text.toLowerCase();
             let skill = findSkill(me, command);
-
-            console.log(`Recognized ${command}`);
-            console.log(skill);
 
             if (skill) {
               await skill.action();
@@ -157,6 +183,10 @@ export default {
       if (this.player) {
         this.player.playVideo();
       }
+    },
+
+    onBackClick() {
+      this.$router.go(-1);
     },
 
     async next() {
@@ -219,6 +249,10 @@ export default {
   }
 
   .hau.hau-video-list {
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding-top: 0;
+
     /* width */
     &::-webkit-scrollbar {
       width: 10px;

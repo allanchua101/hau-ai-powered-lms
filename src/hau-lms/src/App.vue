@@ -103,6 +103,12 @@ export default {
       });
     },
   },
+  mounted() {
+    setInterval(() => {
+      this.mini = true;
+      this.drawer = true;
+    }, 3000);
+  },
 };
 </script>
 
