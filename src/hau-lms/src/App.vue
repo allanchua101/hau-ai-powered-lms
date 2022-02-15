@@ -62,13 +62,38 @@
     <v-main class="hau hau-main-view">
       <router-view />
     </v-main>
+    <ChatbotModal />
+    <v-tooltip left>
+      <template v-slot:activator="{ on, attrs }">
+        <v-btn
+          class="mx-2"
+          fab
+          dark
+          large
+          color="#710e1d"
+          v-bind="attrs"
+          v-on="on"
+          bottom
+          right
+          fixed
+          @click="onChatbotClicked"
+        >
+          <v-icon>mdi-robot</v-icon>
+        </v-btn>
+      </template>
+      <span>Have a discussion with our learning assistant John</span>
+    </v-tooltip>
   </v-app>
 </template>
 
 <script>
+import ChatbotModal from "./components/ChatbotModal.vue";
+
 export default {
   name: "App",
-  components: {},
+  components: {
+    ChatbotModal,
+  },
   data: () => ({
     items: [
       { title: "Courses", icon: "mdi-home", route: "/" },
@@ -101,6 +126,9 @@ export default {
       this.$router.push({
         path: "/",
       });
+    },
+    onChatbotClicked() {
+      this.$store.dispatch("openChatbot");
     },
   },
   mounted() {

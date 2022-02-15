@@ -14,15 +14,6 @@
               <span>Go back</span>
             </v-tooltip>
             <v-spacer></v-spacer>
-            <!-- Chatbot button -->
-            <v-tooltip top>
-              <template v-slot:activator="{ on, attrs }">
-                <v-btn icon v-bind="attrs" v-on="on">
-                  <v-icon>mdi-chat</v-icon>
-                </v-btn>
-              </template>
-              <span>Have a discussion with our chatbot</span>
-            </v-tooltip>
             <!-- Voice Button -->
             <v-tooltip right>
               <template v-slot:activator="{ on, attrs }">
@@ -38,7 +29,7 @@
               <v-col v-if="!!activeVideo" cols="12" md="8" lg="9">
                 <youtube
                   :video-id="activeVideo.youtubeID"
-                  :player-vars="{ autoplay: 1 }"
+                  :player-vars="{ autoplay: 0 }"
                   @playing="playing"
                   @ready="ready"
                   class="hau hau-yt-player"
@@ -108,6 +99,7 @@ async function sleep(ms = 250) {
 }
 
 export default {
+  components: {},
   computed: {
     isCourseSelected() {
       return !!this.activeCourse;
@@ -184,11 +176,9 @@ export default {
         this.player.playVideo();
       }
     },
-
     onBackClick() {
       this.$router.go(-1);
     },
-
     async next() {
       await this.$store.dispatch("playNextVideo");
       await sleep(250);

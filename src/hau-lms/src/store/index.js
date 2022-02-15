@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { courses } from "./courses.json";
+import { getResponse } from "../chatbot/english-bot";
 
 Vue.use(Vuex);
 
@@ -11,6 +12,8 @@ export default new Vuex.Store({
     courses: [...courses],
     activeCourseID: null,
     activeVideoID: 1,
+    isChatbotOpened: false,
+    messages: [],
   },
   mutations: {
     setActiveCourse(state, courseID) {
@@ -20,8 +23,40 @@ export default new Vuex.Store({
     setActiveVideo(state, videoID) {
       state.activeVideoID = videoID;
     },
+    setChatbotState(state, isOpened) {
+      state.isChatbotOpened = isOpened;
+    },
+    addMessage(state, message) {
+      let newMessages = [...state.messages];
+
+      newMessages.push({
+        id: newMessages.length + 1,
+        text: message,
+        isUser: true,
+        date: new Date().valueOf(),
+      });
+      state.messages = newMessages;
+
+      let response = getResponse(message);
+
+      newMessages.push({
+        id: newMessages.length + 1,
+        text: response,
+        isUser: false,
+        date: new Date().valueOf(),
+      });
+    },
   },
   actions: {
+    sendChat({ commit }, message) {
+      commit("addMessage", message);
+    },
+    openChatbot({ commit }) {
+      commit("setChatbotState", true);
+    },
+    closeChatbot({ commit }) {
+      commit("setChatbotState", false);
+    },
     setActiveCourseID({ commit }, id) {
       commit("setActiveCourse", id);
     },
