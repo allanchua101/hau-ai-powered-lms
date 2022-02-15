@@ -15,9 +15,6 @@
                 <h1 class="hau hau-title mt-4 mb-4">
                   {{ activeVideo.videoTitle }}
                 </h1>
-                <h2 class="hau hau-subtitle mb-2">
-                  {{ activeCourseName }} by {{ activeCourse.author }}
-                </h2>
                 <p class="hau hau-desc">{{ activeVideo.description }}</p>
               </v-col>
               <v-col cols="12" md="4" lg="3">
