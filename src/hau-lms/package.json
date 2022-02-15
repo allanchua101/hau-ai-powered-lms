@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "ml-classify-text": "^2.0.0",
     "natural": "^5.1.13",
     "vue": "^2.6.11",
     "vue-router": "^3.5.3",

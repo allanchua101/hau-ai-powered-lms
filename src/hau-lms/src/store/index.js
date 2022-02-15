@@ -1,7 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import { courses } from "./courses.json";
-import { getResponse } from "../chatbot/english-bot";
+import { getResponse } from "../chatbot/english-bot-v2";
 
 Vue.use(Vuex);
 
