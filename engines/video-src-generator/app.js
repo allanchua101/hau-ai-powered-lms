@@ -15,7 +15,12 @@ readXlsxFile("../../content/Videos.xlsx").then((rows) => {
       };
     })
     .filter((vid) => {
-      return vid.videoTitle !== null && vid.videoTitle !== "Video Title";
+      return (
+        vid.videoTitle !== null &&
+        vid.videoTitle !== "Video Title" &&
+        vid.courseTitle &&
+        vid.author
+      );
     })
     .map((vid) => {
       let rx =

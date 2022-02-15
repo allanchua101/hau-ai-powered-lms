@@ -3,13 +3,35 @@
     <v-row>
       <v-col cols="12">
         <v-card elevation="0">
+          <v-toolbar color="#710e1d" dark elevation="0" dense>
+            <!-- Back Button -->
+            <v-tooltip left>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on" @click="onBackClick">
+                  <v-icon>mdi-arrow-left</v-icon>
+                </v-btn>
+              </template>
+              <span>Go back</span>
+            </v-tooltip>
+            <v-spacer></v-spacer>
+            <!-- Voice Button -->
+            <v-tooltip right>
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn icon v-bind="attrs" v-on="on">
+                  <v-icon>mdi-microphone-outline</v-icon>
+                </v-btn>
+              </template>
+              <span>Learn more about our voice bot</span>
+            </v-tooltip>
+          </v-toolbar>
           <v-card-text>
             <v-row>
               <v-col v-if="!!activeVideo" cols="12" md="8" lg="9">
                 <youtube
-                  ref="testYT"
                   :video-id="activeVideo.youtubeID"
-                  :player-vars="{ autoplay: 1 }"
+                  :player-vars="{ autoplay: 0 }"
+                  @playing="playing"
+                  @ready="ready"
                   class="hau hau-yt-player"
                 ></youtube>
                 <h1 class="hau hau-title mt-4 mb-4">
@@ -43,7 +65,7 @@
                             class="hau hau-video-title text-wrap"
                           ></v-list-item-title>
                           <v-list-item-subtitle
-                            v-html="activeCourse.author"
+                            v-html="video.description"
                           ></v-list-item-subtitle>
                         </v-list-item-content>
                       </template>
@@ -77,6 +99,7 @@ async function sleep(ms = 250) {
 }
 
 export default {
+  components: {},
   computed: {
     isCourseSelected() {
       return !!this.activeCourse;
@@ -101,13 +124,11 @@ export default {
     activeVideo() {
       return this.$store.getters.activeVideo;
     },
-    player() {
-      return this.$refs.testYT.player;
-    },
   },
   data: () => {
     return {
       id: null,
+      player: null,
     };
   },
   mounted() {
@@ -119,12 +140,9 @@ export default {
     if (window.annyang) {
       try {
         let commands = {
-          "John *anything": async (text) => {
+          "John *anything": async function (text) {
             let command = text.toLowerCase();
             let skill = findSkill(me, command);
-
-            console.log(`Recognized ${command}`);
-            console.log(skill);
 
             if (skill) {
               await skill.action();
@@ -141,6 +159,15 @@ export default {
       }
     }
   },
+  beforeDestroy() {
+    if (window.annyang) {
+      window.annyang.removeCommands();
+      window.annyang.abort();
+    }
+
+    this.player = null;
+    this.id = 1;
+  },
   methods: {
     async onClick(id) {
       await this.$store.dispatch("setActiveVideoID", id);
@@ -149,7 +176,9 @@ export default {
         this.player.playVideo();
       }
     },
-
+    onBackClick() {
+      this.$router.go(-1);
+    },
     async next() {
       await this.$store.dispatch("playNextVideo");
       await sleep(250);
@@ -176,13 +205,19 @@ export default {
     async play() {
       if (this.player) {
         this.player.playVideo();
-        this.player.unMute();
       }
     },
     async stop() {
       if (this.player) {
         this.player.stopVideo();
       }
+    },
+
+    ready(event) {
+      this.player = event.target;
+    },
+    playing(event) {
+      this.player = event.target;
     },
   },
 };
@@ -204,6 +239,10 @@ export default {
   }
 
   .hau.hau-video-list {
+    border-top: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    padding-top: 0;
+
     /* width */
     &::-webkit-scrollbar {
       width: 10px;
