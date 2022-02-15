@@ -104,7 +104,7 @@ export default {
   methods: {
     onClose() {
       this.$store.dispatch("closeChatbot");
-      this.message = true;
+      this.message = "";
     },
     onKeyDown(e) {
       if (e.keyCode === 13) {
