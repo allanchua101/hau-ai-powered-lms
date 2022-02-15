@@ -7,14 +7,18 @@
             <v-row>
               <v-col v-if="!!activeVideo" cols="12" md="8" lg="9">
                 <youtube
-                  ref="testYT"
                   :video-id="activeVideo.youtubeID"
                   :player-vars="{ autoplay: 1 }"
+                  @playing="playing"
+                  @ready="ready"
                   class="hau hau-yt-player"
                 ></youtube>
                 <h1 class="hau hau-title mt-4 mb-4">
                   {{ activeVideo.videoTitle }}
                 </h1>
+                <h2 class="hau hau-subtitle mb-2">
+                  {{ activeCourseName }} by {{ activeCourse.author }}
+                </h2>
                 <p class="hau hau-desc">{{ activeVideo.description }}</p>
               </v-col>
               <v-col cols="12" md="4" lg="3">
@@ -40,7 +44,7 @@
                             class="hau hau-video-title text-wrap"
                           ></v-list-item-title>
                           <v-list-item-subtitle
-                            v-html="activeCourse.author"
+                            v-html="video.description"
                           ></v-list-item-subtitle>
                         </v-list-item-content>
                       </template>
@@ -98,13 +102,11 @@ export default {
     activeVideo() {
       return this.$store.getters.activeVideo;
     },
-    player() {
-      return this.$refs.testYT.player;
-    },
   },
   data: () => {
     return {
       id: null,
+      player: null,
     };
   },
   mounted() {
@@ -114,9 +116,10 @@ export default {
     me.$store.dispatch("setActiveCourseID", this.id);
 
     if (window.annyang) {
+      console.log("I'm installed again");
       try {
         let commands = {
-          "John *anything": async (text) => {
+          "John *anything": async function (text) {
             let command = text.toLowerCase();
             let skill = findSkill(me, command);
 
@@ -137,6 +140,15 @@ export default {
         window.annyang.start();
       }
     }
+  },
+  beforeDestroy() {
+    if (window.annyang) {
+      window.annyang.removeCommands();
+      window.annyang.abort();
+    }
+
+    this.player = null;
+    this.id = 1;
   },
   methods: {
     async onClick(id) {
@@ -173,13 +185,19 @@ export default {
     async play() {
       if (this.player) {
         this.player.playVideo();
-        this.player.unMute();
       }
     },
     async stop() {
       if (this.player) {
         this.player.stopVideo();
       }
+    },
+
+    ready(event) {
+      this.player = event.target;
+    },
+    playing(event) {
+      this.player = event.target;
     },
   },
 };
