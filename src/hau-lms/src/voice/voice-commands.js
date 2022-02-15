@@ -1,6 +1,8 @@
 export function findSkill(comp, query) {
   let skills = [];
 
+  console.log(query);
+
   skills.push({
     action: comp.next,
     queries: ["next", "nex", "next video", "play next", "go next"],
@@ -16,13 +18,20 @@ export function findSkill(comp, query) {
     queries: [
       "pause",
       "pos",
+      "post",
       "course",
       "plus",
       "pulse",
       "horse",
       "force",
+      "folse",
       "foss",
       "poss",
+      "holt",
+      "hold",
+      "hart",
+      "halt",
+      "paul's",
     ],
   });
 
