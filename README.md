@@ -1,5 +1,14 @@
 ## HAU AI Collator
 
+<p align="center">
+     <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Course%20list.png"
+          alt="Course list of application"
+          width="712px" />
+</p>
+<p align="center">
+     HAU AI Collator is a client-side only application that collates awesome artificial intelligence and innovation related videos that can help students boost their software engineering schools and promote commoditization of AI technologies.
+</p>
+
 [Visit live POC website](https://allanchua101.github.io/hau-ai-powered-lms/)
 
 HAU AI collator is a POC used for testing the following features:
