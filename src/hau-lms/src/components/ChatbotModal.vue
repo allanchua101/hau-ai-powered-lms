@@ -30,7 +30,7 @@
                 >
                   <v-list-item-title
                     v-text="msg.text"
-                    class="hau hau-bot-chat align-self-start text-left"
+                    class="hau hau-bot-chat align-self-start text-left text-wrap"
                   ></v-list-item-title>
                 </v-list-item-content>
                 <!-- User messages -->
@@ -131,6 +131,7 @@ export default {
     color: white;
     padding: 10px 12px;
     border-radius: 26px;
+    max-width: 80%;
   }
 
   .hau.hau-bot-chat {
@@ -138,6 +139,8 @@ export default {
     color: white;
     padding: 10px 12px;
     border-radius: 26px;
+    line-height: 22px;
+    max-width: 80%;
   }
 
   .hau.hau-empty-chat {
