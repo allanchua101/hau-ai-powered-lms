@@ -9,6 +9,15 @@ HAU AI collator is a POC used for testing the following features:
 - Implement a chatbot that responds to queries to enhance learning experience of viewers.
 - Showcase different edge-based AI capabilities and prove that we can build AI-enabled frontends with no backends
 
+### Client-side Chatbot
+
+<p align="center">
+<img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Chatbot.png"
+     alt="A chatbot included in the LMS"
+     style="margin-right: auto; margin-left: auto; max-width: 128px;" />
+</p>
+This LMS prototype includes a chatbot that can respond to user queries under within a milliseconds without requiring network connectivity.
+
 ### Voice Control
 
 <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/Voice%20Banner.png"
