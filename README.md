@@ -1,13 +1,31 @@
 ## HAU AI Collator
 
-[Visit live POC website](https://allanchua101.github.io/hau-ai-powered-lms/)
+<p align="center">
+     <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Course%20list.png"
+          alt="Course list of application"
+          width="712px" />
+</p>
+<p align="center">
+     HAU innovation collator is a client-side only application that collates awesome artificial intelligence and innovation related videos that can help students boost their software engineering schools and promote commoditization of AI technologies.
+</p>
 
-HAU AI collator is a POC used for testing the following features:
+[Live POC Website](https://allanchua101.github.io/hau-ai-powered-lms/)
+
+### Features
 
 - Making Youtube videos play using VueJS components
 - Implement a voice command recognition system that allows remote control of the learning materials
 - Implement a chatbot that responds to queries to enhance learning experience of viewers.
 - Showcase different edge-based AI capabilities and prove that we can build AI-enabled frontends with no backends
+
+### Client-side Chatbot
+
+<p align="center">
+<img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Chatbot.png"
+     alt="A chatbot included in the LMS"
+     style="margin-right: auto; margin-left: auto; max-width: 96px;" width="512px" />
+</p>
+This LMS prototype includes a chatbot that can respond to user queries under within a milliseconds without requiring network connectivity.
 
 ### Voice Control
 
