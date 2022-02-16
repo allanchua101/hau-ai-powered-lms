@@ -6,8 +6,10 @@
           width="712px" />
 </p>
 <p align="center">
-     [HAU AI Collator](https://allanchua101.github.io/hau-ai-powered-lms/) is a client-side only application that collates awesome artificial intelligence and innovation related videos that can help students boost their software engineering schools and promote commoditization of AI technologies.
+     HAU innovation collator is a client-side only application that collates awesome artificial intelligence and innovation related videos that can help students boost their software engineering schools and promote commoditization of AI technologies.
 </p>
+
+[Live POC Website](https://allanchua101.github.io/hau-ai-powered-lms/)
 
 ### Features
 
