@@ -15,7 +15,9 @@ export function getResponse(msg) {
     return DEFAULT_RESPONSE;
   }
 
-  if (res[0].confidence <= 0.5) {
+  console.log(JSON.stringify(res));
+
+  if (res[0].confidence <= 0.4) {
     return DEFAULT_RESPONSE;
   }
 
