@@ -1,4 +1,4 @@
-## HAU AI Collator
+## HAU Innovation Collator
 
 <p align="center">
      <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Course%20list.png"
@@ -6,7 +6,7 @@
           width="712px" />
 </p>
 <p align="center">
-     HAU innovation collator is a client-side only application that aggregates awesome artificial intelligence and innovation related videos that aims to help students boost their software engineering skills and promote commoditization of AI technologies.
+     HAU innovation collator is a client-side only application that aggregates awesome artificial intelligence and innovation related videos. It aims to help students boost their software engineering skills and promote commoditization of AI technologies.
 </p>
 
 [Live POC Website](https://allanchua101.github.io/hau-ai-powered-lms/)
@@ -41,7 +41,6 @@ A diagram explaining our core feature which is a Voice-control bot
 - Vuetify
 - NodeJS
 - Vue Youtube Embed [(NPM)](https://www.npmjs.com/package/vue-youtube-embed)
-- Natural JS [(NPM)](https://www.npmjs.com/package/natural)
 - ML Classify Text [(Github)](https://github.com/andreekeberg/ml-classify-text-js)
 - Annyang [(NPM)](https://www.npmjs.com/package/annyang)
 
