@@ -46,4 +46,4 @@ A diagram explaining our core feature which is a Voice-control bot
 
 ### Project Motivation
 
-This project is motivated by the need to submit a final output for our e-learning subject in our MIT class at [Holy Angel University](https://www.hau.edu.ph/).
+This project is inspired by one of the requirements in our MIT class at [Holy Angel University](https://www.hau.edu.ph/).
