@@ -9,7 +9,7 @@ intents.forEach((item) => {
 });
 
 function cleanseInput(str) {
-  let temp = str.replace(/[^a-zA-Z0-9]/g, "");
+  let temp = str.replace(/[^a-zA-Z0-9 ]/g, "");
 
   return temp.trim().toLowerCase();
 }

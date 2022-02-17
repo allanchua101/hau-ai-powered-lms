@@ -26,7 +26,8 @@ readXlsxFile(INPUT_FILE).then((rows) => {
       .split(";")
       .filter((q) => q.trim() !== "")
       .map((q) => {
-        let temp = q.replace(/[~`!@#$%^&*()+={}\[\];:\'\"<>.,\/\\\?-_]/g, "");
+        let temp = q.replace(/[^a-zA-Z0-9 ]/g, "");
+
         return temp.trim().toLowerCase();
       });
     let responses = item.reply

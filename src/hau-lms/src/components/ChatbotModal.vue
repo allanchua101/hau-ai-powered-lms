@@ -2,7 +2,7 @@
   <v-dialog
     v-model="isOpened"
     transition="dialog-bottom-transition"
-    max-width="360px"
+    max-width="520px"
     @click:outside="onClose"
   >
     <v-card class="hau hau-chat-dialog mb-0">
