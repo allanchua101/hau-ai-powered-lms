@@ -8,8 +8,15 @@ intents.forEach((item) => {
   clf.train(item.queries, item.intent);
 });
 
+function cleanseInput(str) {
+  let temp = str.replace(/[^a-zA-Z0-9]/g, "");
+
+  return temp.trim().toLowerCase();
+}
+
 export function getResponse(msg) {
-  let res = clf.predict(msg);
+  let cleansed = cleanseInput(msg);
+  let res = clf.predict(cleansed);
 
   if (res.length === 0) {
     return DEFAULT_RESPONSE;

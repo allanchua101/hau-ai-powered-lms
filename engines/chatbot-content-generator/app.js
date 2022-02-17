@@ -25,7 +25,10 @@ readXlsxFile(INPUT_FILE).then((rows) => {
       .trim()
       .split(";")
       .filter((q) => q.trim() !== "")
-      .map((q) => capitalize(q.trim()));
+      .map((q) => {
+        let temp = q.replace(/[~`!@#$%^&*()+={}\[\];:\'\"<>.,\/\\\?-_]/g, "");
+        return temp.trim().toLowerCase();
+      });
     let responses = item.reply
       .trim()
       .split(";")
