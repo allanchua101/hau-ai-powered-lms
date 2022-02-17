@@ -58,8 +58,8 @@
             <TypingIndicator v-if="isTyping" />
             <ChatIcon v-if="isEmptyBox" class="hau hau-empty-chat" />
             <p v-if="isEmptyBox" class="text-center hau hau-empty-chat-msg">
-              You have no messages yet. Type something on the box below to speak
-              with John our chatbot.
+              You have no messages yet. Type something on the box below to ask
+              John our chatbot. E.G. (What is ML? What is AI? What is HTML?)
             </p>
           </v-col>
         </v-row>
