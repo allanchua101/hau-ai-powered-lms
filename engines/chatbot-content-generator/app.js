@@ -1,12 +1,14 @@
 const readXlsxFile = require("read-excel-file/node");
 const fs = require("fs");
+const INPUT_FILE = "../../content/Chatbot Intents.xlsx";
+// const INPUT_FILE = "../../content/Set 2.xlsx";
 
 function capitalize(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
 // File path.
-readXlsxFile("../../content/Chatbot Intents.xlsx").then((rows) => {
+readXlsxFile(INPUT_FILE).then((rows) => {
   let messageSets = rows
     .map((row) => {
       return {

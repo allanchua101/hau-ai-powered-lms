@@ -13,6 +13,7 @@ export default new Vuex.Store({
     activeCourseID: null,
     activeVideoID: 1,
     isChatbotOpened: false,
+    isBotResponding: false,
     messages: [],
   },
   mutations: {
@@ -36,20 +37,30 @@ export default new Vuex.Store({
         date: new Date().valueOf(),
       });
       state.messages = newMessages;
+      state.isBotResponding = true;
 
-      let response = getResponse(message);
+      setTimeout(() => {
+        let response = getResponse(message);
 
-      newMessages.push({
-        id: newMessages.length + 1,
-        text: response,
-        isUser: false,
-        date: new Date().valueOf(),
-      });
+        newMessages.push({
+          id: newMessages.length + 1,
+          text: response,
+          isUser: false,
+          date: new Date().valueOf(),
+        });
+        state.isBotResponding = false;
+      }, 750);
+    },
+    clearMessages(state) {
+      state.messages = [];
     },
   },
   actions: {
     sendChat({ commit }, message) {
       commit("addMessage", message);
+    },
+    clearChat({ commit }) {
+      commit("clearMessages");
     },
     openChatbot({ commit }) {
       commit("setChatbotState", true);

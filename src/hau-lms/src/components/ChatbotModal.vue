@@ -10,6 +10,15 @@
         <v-icon class="mr-2">mdi-robot</v-icon>
         <v-toolbar-title>John the geek</v-toolbar-title>
         <v-spacer></v-spacer>
+
+        <v-tooltip top>
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn icon dark @click="onClear" v-bind="attrs" v-on="on">
+              <v-icon>mdi-chat-remove</v-icon>
+            </v-btn>
+          </template>
+          <span>Clear chat</span>
+        </v-tooltip>
         <v-btn icon dark @click="onClose">
           <v-icon>mdi-close</v-icon>
         </v-btn>
@@ -41,13 +50,14 @@
                   <v-spacer></v-spacer>
                   <v-list-item-title
                     v-text="msg.text"
-                    class="hau hau-user-chat align-self-end text-right"
+                    class="hau hau-user-chat align-self-end text-wrap text-right"
                   ></v-list-item-title>
                 </v-list-item-content>
               </v-list-item>
             </v-list>
+            <TypingIndicator v-if="isTyping" />
             <ChatIcon v-if="isEmptyBox" class="hau hau-empty-chat" />
-            <p v-if="isEmptyBox" class="text-center mr-4">
+            <p v-if="isEmptyBox" class="text-center hau hau-empty-chat-msg">
               You have no messages yet. Type something on the box below to speak
               with John our chatbot.
             </p>
@@ -72,11 +82,13 @@
 
 <script>
 import ChatIcon from "../icons/ChatIcon.vue";
+import TypingIndicator from "./TypingIndicator.vue";
 
 export default {
   name: "ChatbotModal",
   components: {
     ChatIcon,
+    TypingIndicator,
   },
   computed: {
     isOpened() {
@@ -87,6 +99,9 @@ export default {
     },
     isEmptyBox() {
       return this.$store.state.messages.length === 0;
+    },
+    isTyping() {
+      return this.$store.state.isBotResponding;
     },
   },
   data: () => {
@@ -99,16 +114,22 @@ export default {
       this.$store.dispatch("closeChatbot");
       this.message = "";
     },
+    onClear() {
+      this.$store.dispatch("clearChat");
+    },
     onKeyDown(e) {
       if (e.keyCode === 13) {
         this.$store.dispatch("sendChat", this.message);
         this.message = "";
-        setTimeout(() => {
+        let scrollToBottom = () => {
           this.$refs.chatList.$el.scrollTo(
             0,
             this.$refs.chatList.$el.scrollHeight
           );
-        }, 250);
+        };
+
+        setTimeout(scrollToBottom, 100);
+        setTimeout(scrollToBottom, 1000);
       }
     },
   },
@@ -124,6 +145,7 @@ export default {
   .hau.hau-chatbot-card {
     padding-right: 0;
     overflow-x: hidden;
+    min-height: 418px;
   }
 
   .hau.hau-user-chat {
@@ -131,6 +153,7 @@ export default {
     color: white;
     padding: 10px 12px;
     border-radius: 26px;
+    line-height: 22px;
     max-width: 80%;
   }
 
@@ -147,8 +170,13 @@ export default {
     max-width: 96px;
     margin: auto;
     display: block;
-    margin-top: 24px;
+    margin-top: 86px;
     margin-bottom: 12px;
+  }
+
+  .hau.hau-empty-chat-msg {
+    margin-bottom: 128px;
+    margin-right: 24px;
   }
 
   .hau.hau-chat-list {
