@@ -1,7 +1,7 @@
 ## HAU Innovation Collator
 
 <p align="center">
-     <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Course%20list.png"
+     <img src="https://github.com/allanchua101/hau-ai-powered-lms/blob/main/assets/screenshots/Home%20Page.png"
           alt="Course list of application"
           width="712px" />
 </p>
