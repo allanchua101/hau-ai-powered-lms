@@ -1,9 +1,9 @@
 <template>
   <v-container class="hau hau-courses">
     <v-row>
-      <v-col cols="12">
-        <CourseIcon class="hau hau-course-icon mr-2 d-inline-block" />
-        <h1 class="hau hau-page-title d-inline-block">Let's start learning</h1>
+      <v-col cols="12" class="d-flex justify-start">
+        <CourseIcon class="hau hau-course-icon" />
+        <h1 class="hau hau-page-title">Let's start learning</h1>
       </v-col>
       <v-col cols="12" class="py-0">
         <v-text-field
@@ -93,8 +93,9 @@ $secondary-color: #5a5959;
   margin: auto;
 
   .hau.hau-course-icon {
-    margin-top: 4px;
-    max-width: 32px;
+    min-height: 32px;
+    max-height: 42px;
+    margin-right: 8px;
   }
 
   .hau.hau-course-icon path {
@@ -102,8 +103,9 @@ $secondary-color: #5a5959;
   }
 
   .hau.hau-page-title {
-    font-size: 24px;
-    line-height: 24px;
+    font-size: 32px;
+    line-height: 32px;
+    margin-top: 4px;
     margin-bottom: 0;
     padding-bottom: 0;
   }
@@ -128,13 +130,8 @@ $secondary-color: #5a5959;
   .hau.hau-courses {
     padding-left: 0;
 
-    .hau.hau-course-icon {
-      max-width: 32px;
-    }
-
     .hau.hau-page-title {
       font-size: 32px;
-      margin-top: 4px;
     }
   }
 }
