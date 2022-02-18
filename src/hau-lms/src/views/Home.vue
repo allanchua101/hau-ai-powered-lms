@@ -3,13 +3,12 @@
     <v-row class="hau hau-home hau-landing-wrap text-center">
       <v-col cols="12">
         <BrandIcon class="hau hau-icon" />
-        <h1 class="hau hau-message">
-          Advancing human knowledge through
-          <span>Artificial Intelligence</span>
-        </h1>
+        <typewriter :type-interval="35">
+          <h1 class="hau hau-message">Advancing the Human Race Through A.I.</h1>
+        </typewriter>
         <h1 class="hau hau-describe">
           Our goal is to contribute in addressing the issues of our education
-          system so it could fit the needs of modern society.
+          system for the betterment of the society.
         </h1>
         <v-btn
           class="mx-auto mt-12"
@@ -29,10 +28,12 @@
 
 <script>
 import BrandIcon from "../icons/BrandIcon.vue";
+import Typewriter from "typewriter-vue";
 
 export default {
   components: {
     BrandIcon,
+    Typewriter,
   },
   methods: {
     onStart() {
@@ -56,7 +57,8 @@ $primary-color: #272727;
 
     .hau.hau-message {
       font-family: "Amatic SC", cursive;
-      font-size: 36px;
+      font-family: "Oxygen";
+      font-size: 24px;
       margin: auto;
       color: white;
     }
@@ -82,6 +84,7 @@ $primary-color: #272727;
       .hau.hau-message {
         font-size: 72px;
         max-width: 960px;
+        min-height: 220px;
       }
       .hau.hau-describe {
         font-size: 16px;
