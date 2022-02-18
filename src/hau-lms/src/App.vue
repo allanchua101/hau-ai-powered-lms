@@ -3,15 +3,21 @@
     <!-- Application bar -->
     <v-app-bar app color="#272727" dark elevation="0" dense>
       <div class="d-flex align-center">
-        <v-img
-          class="shrink mr-2 hau hau-logo"
-          contain
-          src="imgs/logo.svg"
-          transition="scale-transition"
-          width="32"
-          @click="onLogoClick"
-        />
-        HAU Innovation Collator
+        <v-tooltip bottom>
+          <template v-slot:activator="{ on, attrs }">
+            <v-img
+              class="shrink mr-2 hau hau-logo"
+              contain
+              v-bind="attrs"
+              v-on="on"
+              src="imgs/logo.svg"
+              transition="scale-transition"
+              width="32"
+              @click.native="onLogoClick"
+            />
+          </template>
+          <span> HAU Innovation Collator </span>
+        </v-tooltip>
       </div>
       <v-spacer></v-spacer>
       <v-tooltip bottom v-for="item in items" :key="item.title">
