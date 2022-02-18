@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 cd ./engines/video-src-generator
 node app.js

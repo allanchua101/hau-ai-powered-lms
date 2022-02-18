@@ -64,7 +64,7 @@ export default {
       { title: "Courses", icon: "mdi-home", route: "/" },
       { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
       {
-        title: "About our Project",
+        title: "About Us",
         icon: "mdi-information-outline",
         route: "/about",
       },

@@ -102,6 +102,7 @@ $secondary-color: #5a5959;
 
   .hau.hau-page-title {
     font-size: 24px;
+    line-height: 36px;
   }
 
   .hau.hau-course-title {

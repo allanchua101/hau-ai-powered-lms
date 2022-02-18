@@ -18,7 +18,7 @@ readXlsxFile(INPUT_FILE).then((rows) => {
       };
     })
     .filter((row) => {
-      return row.intent !== "intent";
+      return row.intent && row.intent !== "intent" && row.query && row.reply;
     });
   let intents = messageSets.reduce((agg, item) => {
     let queries = item.query
