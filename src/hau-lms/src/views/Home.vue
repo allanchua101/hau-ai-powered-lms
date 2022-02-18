@@ -19,7 +19,8 @@
           x-large
           @click="onStart"
         >
-          Start learning
+          <v-icon class="mr-2 mt-0">mdi-arrow-right-drop-circle-outline</v-icon>
+          <span class="mt-1">Start learning</span>
         </v-btn>
       </v-col>
     </v-row>
@@ -60,6 +61,7 @@ $primary-color: #272727;
       color: white;
     }
     .hau.hau-describe {
+      font-family: "Oxygen";
       font-size: 18px;
       margin-top: 32px;
       font-weight: lighter;
