@@ -52,7 +52,7 @@ $primary-color: #272727;
   background-color: $primary-color;
 
   .hau.hau-home.hau-landing-wrap {
-    max-width: 70vw;
+    max-width: 95vw;
     margin: auto;
 
     .hau.hau-message {
@@ -81,6 +81,8 @@ $primary-color: #272727;
 @media (min-width: 1400px) {
   .hau.hau-home-page {
     .hau.hau-home.hau-landing-wrap {
+      max-width: 70vw;
+
       .hau.hau-message {
         font-size: 72px;
         max-width: 960px;
