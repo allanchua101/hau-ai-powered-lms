@@ -113,10 +113,8 @@ export default {
 
 <style lang="scss">
 .hau.hau--app {
-  padding-top: 40px;
-
   .hau.hau-main-view {
-    padding-top: 24px !important;
+    padding-top: 54px !important;
   }
 
   .container.hau {
@@ -138,7 +136,6 @@ export default {
 
     .container.hau {
       padding: 12px;
-      padding-left: 64px;
     }
   }
 }
