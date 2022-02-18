@@ -3,7 +3,7 @@
     <!-- Application bar -->
     <v-app-bar app color="#272727" dark elevation="0" dense>
       <div class="d-flex align-center">
-        <v-tooltip bottom>
+        <v-tooltip bottom :disabled="isMobile">
           <template v-slot:activator="{ on, attrs }">
             <v-img
               class="shrink mr-2 hau hau-logo"
@@ -20,7 +20,12 @@
         </v-tooltip>
       </div>
       <v-spacer></v-spacer>
-      <v-tooltip bottom v-for="item in items" :key="item.title">
+      <v-tooltip
+        bottom
+        v-for="item in items"
+        :key="item.title"
+        :disabled="isMobile"
+      >
         <template v-slot:activator="{ on, attrs }">
           <v-btn dark icon v-bind="attrs" v-on="on" :to="item.route">
             <v-icon>{{ item.icon }}</v-icon>
@@ -34,7 +39,7 @@
       <router-view />
     </v-main>
     <ChatbotModal />
-    <v-tooltip left>
+    <v-tooltip left :disabled="isMobile">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
           class="mx-2"
@@ -114,7 +119,7 @@ export default {
 <style lang="scss">
 .hau.hau--app {
   .hau.hau-main-view {
-    padding-top: 54px !important;
+    padding-top: 64px !important;
   }
 
   .container.hau {

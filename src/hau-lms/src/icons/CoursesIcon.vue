@@ -1,9 +1,5 @@
 <template>
-  <svg
-    viewBox="0 0 24 24"
-    data-name="025_SCIENCE"
-    xmlns="http://www.w3.org/2000/svg"
-  >
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path
       class="cls-1"
       d="M20,22H5a1,1,0,0,1-1-1V3A1,1,0,0,1,5,2H20a1,1,0,0,1,1,1V18a1,1,0,0,1-2,0V4H6V20H20a1,1,0,0,1,0,2Z"
