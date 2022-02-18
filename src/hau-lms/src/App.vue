@@ -1,7 +1,7 @@
 <template>
   <v-app class="hau hau--app">
     <!-- Application bar -->
-    <v-app-bar app color="#272727" dark elevation="0" dense>
+    <v-app-bar app color="#272727" dark elevation="0">
       <div class="d-flex align-center">
         <v-tooltip bottom :disabled="isMobile">
           <template v-slot:activator="{ on, attrs }">
@@ -35,7 +35,7 @@
       </v-tooltip>
     </v-app-bar>
     <!-- Router -->
-    <v-main class="hau hau-main-view">
+    <v-main :class="'hau hau-main-view' + (isHomePage ? ' home-page' : '')">
       <router-view />
     </v-main>
     <ChatbotModal />
@@ -72,7 +72,8 @@ export default {
   },
   data: () => ({
     items: [
-      { title: "Courses", icon: "mdi-home", route: "/" },
+      { title: "Home", icon: "mdi-home", route: "/" },
+      { title: "Courses", icon: "mdi-book", route: "/courses" },
       { title: "Our Team", icon: "mdi-account-group-outline", route: "/team" },
       {
         title: "About Us",
@@ -95,6 +96,9 @@ export default {
       let bpName = this.$vuetify.breakpoint.name;
 
       return bpName === "xs" || bpName === "sm";
+    },
+    isHomePage() {
+      return this.$route.path === "/";
     },
   },
   methods: {
@@ -119,7 +123,11 @@ export default {
 <style lang="scss">
 .hau.hau--app {
   .hau.hau-main-view {
-    padding-top: 64px !important;
+    padding-top: 72px !important;
+
+    &.home-page {
+      padding-top: 54px !important;
+    }
   }
 
   .container.hau {
@@ -136,7 +144,11 @@ export default {
     padding-top: 48px;
 
     .hau.hau-main-view {
-      padding-top: 12px !important;
+      padding-top: 24px !important;
+
+      &.home-page {
+        padding-top: 0 !important;
+      }
     }
 
     .container.hau {
