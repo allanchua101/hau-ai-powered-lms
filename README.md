@@ -6,17 +6,17 @@
           width="712px" />
 </p>
 <p align="center">
-     HAU innovation collator is a client-side only application that aggregates awesome artificial intelligence and innovation related videos. It aims to help students boost their software engineering skills and promote commoditization of AI technologies.
+     HAU innovation collator is a client-side only application that aggregates awesome artificial intelligence and innovation related videos. It aims to help students boost their software engineering skills and promote commodification of AI technologies.
 </p>
 
 [Live POC Website](https://allanchua101.github.io/hau-ai-powered-lms/)
 
 ### Features
 
-- Play YouTube videos using VueJS components
-- Implement a voice command recognition system that allows remote control of the learning materials
 - Implement a chatbot that responds to queries to enhance learning experience of viewers.
-- Showcase different edge-based AI capabilities and prove that we can build AI-enabled frontends with no backends
+- Implement a voice command recognition system that allows remote control of the learning materials
+- Showcase different edge-based AI capabilities and prove that we can build AI-enabled GUIs with no backends
+- Play YouTube videos using VueJS components
 
 ### Client-side Chatbot
 
@@ -25,7 +25,7 @@
      alt="A chatbot included in the LMS"
      style="margin-right: auto; margin-left: auto; max-width: 96px;" width="512px" />
 </p>
-This LMS prototype includes a chatbot that can respond to user queries under within a milliseconds without requiring network connectivity.
+This LMS prototype includes a chatbot that can respond to common student queries within a few milliseconds without requiring network connectivity.
 
 ### Voice Control
 
@@ -46,4 +46,4 @@ A diagram explaining our core feature which is a Voice-control bot
 
 ### Project Motivation
 
-This project is inspired by one of the requirements in our MIT class at [Holy Angel University](https://www.hau.edu.ph/).
+This project wad developed as one of our class requirements for MIT at [Holy Angel University](https://www.hau.edu.ph/).

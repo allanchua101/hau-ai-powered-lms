@@ -11,53 +11,18 @@
           width="32"
           @click="onLogoClick"
         />
-        HAU AI - Collator
+        HAU Innovation Collator
       </div>
       <v-spacer></v-spacer>
-      <v-menu v-if="isMobile" bottom left transition="slide-y-transition">
+      <v-tooltip bottom v-for="item in items" :key="item.title">
         <template v-slot:activator="{ on, attrs }">
-          <v-btn dark icon v-bind="attrs" v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
+          <v-btn dark icon v-bind="attrs" v-on="on" :to="item.route">
+            <v-icon>{{ item.icon }}</v-icon>
           </v-btn>
         </template>
-
-        <v-list>
-          <v-list-item v-for="(item, i) in items" :key="i" :to="item.route">
-            <v-list-item-icon>
-              <v-icon>{{ item.icon }}</v-icon>
-            </v-list-item-icon>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+        <span> {{ item.title }} </span>
+      </v-tooltip>
     </v-app-bar>
-    <!-- Drawer -->
-    <v-navigation-drawer
-      v-if="!isMobile"
-      v-model="drawer"
-      permanent
-      absolute
-      :mini-variant.sync="mini"
-    >
-      <v-divider></v-divider>
-      <v-list dense>
-        <v-list-item
-          v-for="item in items"
-          :key="item.title"
-          link
-          :to="item.route"
-        >
-          <v-list-item-icon>
-            <v-icon>{{ item.icon }}</v-icon>
-          </v-list-item-icon>
-          <v-list-item-content>
-            <v-list-item-title>
-              {{ item.title }}
-            </v-list-item-title>
-          </v-list-item-content>
-        </v-list-item>
-      </v-list>
-    </v-navigation-drawer>
     <!-- Router -->
     <v-main class="hau hau-main-view">
       <router-view />
