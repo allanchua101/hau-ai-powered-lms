@@ -15,6 +15,8 @@ export default new Vuex.Store({
     isChatbotOpened: false,
     isBotResponding: false,
     messages: [],
+    searchText: "",
+    isSearchVisible: false,
   },
   mutations: {
     setActiveCourse(state, courseID) {
@@ -54,6 +56,13 @@ export default new Vuex.Store({
     clearMessages(state) {
       state.messages = [];
     },
+    //Search
+    updateSearchText(state, searchText) {
+      state.searchText = searchText;
+    },
+    setSearchVisibility(state, isOpened) {
+      state.isSearchVisible = isOpened;
+    },
   },
   actions: {
     sendChat({ commit }, message) {
@@ -73,6 +82,15 @@ export default new Vuex.Store({
     },
     setActiveVideoID({ commit }, id) {
       commit("setActiveVideo", id);
+    },
+    closeSearch({ commit }) {
+      commit("setSearchVisibility", false);
+    },
+    openSearch({ commit }) {
+      commit("setSearchVisibility", true);
+    },
+    setSearchText({ commit }, text) {
+      commit("updateSearchText", text);
     },
     async playNextVideo({ commit, state }) {
       let maxID = state.courses[state.activeCourseID - 1].videos.length;

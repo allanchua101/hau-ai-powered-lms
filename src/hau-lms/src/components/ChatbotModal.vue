@@ -7,7 +7,7 @@
   >
     <v-card class="hau hau-chat-dialog mb-0">
       <v-toolbar dark color="#710e1d" elevation="0" dense>
-        <v-icon class="mr-2">mdi-robot</v-icon>
+        <v-icon class="mr-2" large>mdi-robot</v-icon>
         <v-toolbar-title>John the geek</v-toolbar-title>
         <v-spacer></v-spacer>
 

@@ -4,14 +4,35 @@
       <v-col cols="12" class="d-flex justify-start">
         <CourseIcon class="hau hau-course-icon" />
         <h1 class="hau hau-page-title">Let's start learning</h1>
+        <v-spacer></v-spacer>
+        <v-tooltip left :disabled="isMobile">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn
+              class="mx-2"
+              dark
+              color="#202024"
+              v-bind="attrs"
+              v-on="on"
+              @click="onSearch"
+              elevation="0"
+            >
+              <v-icon>mdi-magnify</v-icon>
+            </v-btn>
+          </template>
+          <span>Search a course</span>
+        </v-tooltip>
       </v-col>
-      <v-col cols="12" class="py-0">
-        <v-text-field
-          v-model="filterText"
-          label="Search by course name"
-          clearable
-          prepend-inner-icon="mdi-magnify"
-        ></v-text-field>
+      <v-col v-if="filterText" cols="12">
+        <v-chip
+          color="#710e1d"
+          label
+          close
+          text-color="white"
+          @click:close="onRemoveFilter"
+        >
+          <v-icon left> mdi-label </v-icon>
+          Filtered by {{ filterText }}
+        </v-chip>
       </v-col>
       <v-col
         v-for="course in courseList"
@@ -19,11 +40,13 @@
         cols="12"
         sm="6"
         md="4"
+        lg="3"
       >
         <v-slide-y-transition>
           <v-card
             elevation="0"
             outlined
+            tile
             v-show="true"
             @click="() => onClick(course.id)"
           >
@@ -40,25 +63,30 @@
         <p>We can't find courses that matches your search term.</p>
       </v-col>
     </v-row>
+    <SearchBoxModal />
   </v-container>
 </template>
 
 <script>
-import CourseIcon from "../icons/CoursesIcon.vue";
-import EmptyIcon from "../icons/EmptyIcon.vue";
+import CourseIcon from "../icons/CoursesIcon";
+import EmptyIcon from "../icons/EmptyIcon";
+import SearchBoxModal from "../components/SearchBoxModal";
 
 export default {
   components: {
     CourseIcon,
     EmptyIcon,
+    SearchBoxModal,
   },
   computed: {
     hasCourses() {
       return this.courseList.length > 0;
     },
     courseList() {
-      if (this.filterText) {
-        let cleansedText = this.filterText.toLowerCase();
+      let filterText = this.$store.state.searchText;
+
+      if (filterText) {
+        let cleansedText = filterText.toLowerCase();
 
         return this.$store.getters.courseList.filter(
           (i) => i.courseTitle.toLowerCase().indexOf(cleansedText) > -1
@@ -67,17 +95,26 @@ export default {
 
       return this.$store.getters.courseList;
     },
-  },
-  data: () => {
-    return {
-      filterText: "",
-    };
+    isMobile() {
+      let bpName = this.$vuetify.breakpoint.name;
+
+      return bpName === "xs" || bpName === "sm";
+    },
+    filterText() {
+      return this.$store.state.searchText;
+    },
   },
   methods: {
     onClick(id) {
       this.$router.push({
         path: "/course/view/?id=" + id,
       });
+    },
+    onSearch() {
+      this.$store.dispatch("openSearch");
+    },
+    onRemoveFilter() {
+      this.$store.dispatch("setSearchText", "");
     },
   },
 };
@@ -133,6 +170,12 @@ $secondary-color: #5a5959;
     .hau.hau-page-title {
       font-size: 32px;
     }
+  }
+}
+
+@media (min-width: 1400px) {
+  .hau.hau-courses {
+    max-width: 1200px;
   }
 }
 </style>
