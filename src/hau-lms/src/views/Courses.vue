@@ -30,8 +30,8 @@
           text-color="white"
           @click:close="onRemoveFilter"
         >
-          <v-icon left> mdi-label </v-icon>
-          Filtered by {{ filterText }}
+          <v-icon left> mdi-filter </v-icon>
+          Filtered by "{{ filterText }}"
         </v-chip>
       </v-col>
       <v-col
