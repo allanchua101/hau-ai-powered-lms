@@ -6,18 +6,21 @@
     @click:outside="onClose"
   >
     <v-card class="hau hau-chat-dialog mb-0">
-      <v-toolbar dark color="#710e1d" elevation="0" dense>
-        <v-icon class="mr-2" large>mdi-robot</v-icon>
-        <v-toolbar-title>John the geek</v-toolbar-title>
+      <v-toolbar dark color="#710e1d" elevation="0">
+        <v-avatar color="#313135" class="mr-2 mt-2 mb-2">
+          <ChatbotIcon />
+        </v-avatar>
+        <v-toolbar-title>
+          <span class="h2">John</span>
+        </v-toolbar-title>
         <v-spacer></v-spacer>
-
         <v-tooltip top>
           <template v-slot:activator="{ on, attrs }">
             <v-btn icon dark @click="onClear" v-bind="attrs" v-on="on">
-              <v-icon>mdi-chat-remove</v-icon>
+              <v-icon>mdi-refresh</v-icon>
             </v-btn>
           </template>
-          <span>Clear chat</span>
+          <span>Clear messages</span>
         </v-tooltip>
         <v-btn icon dark @click="onClose">
           <v-icon>mdi-close</v-icon>
@@ -82,12 +85,14 @@
 
 <script>
 import ChatIcon from "../icons/ChatIcon.vue";
+import ChatbotIcon from "../icons/ChatbotIcon.vue";
 import TypingIndicator from "./TypingIndicator.vue";
 
 export default {
   name: "ChatbotModal",
   components: {
     ChatIcon,
+    ChatbotIcon,
     TypingIndicator,
   },
   computed: {

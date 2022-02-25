@@ -45,7 +45,7 @@
           class="mx-2"
           fab
           dark
-          large
+          x-large
           color="#710e1d"
           v-bind="attrs"
           v-on="on"
@@ -54,7 +54,7 @@
           fixed
           @click="onChatbotClicked"
         >
-          <v-icon>mdi-robot</v-icon>
+          <ChatbotIcon class="hau hau-chatbot-icon" />
         </v-btn>
       </template>
       <span>Have a discussion with our learning assistant John</span>
@@ -64,11 +64,13 @@
 
 <script>
 import ChatbotModal from "./components/ChatbotModal.vue";
+import ChatbotIcon from "./icons/ChatbotIcon.vue";
 
 export default {
   name: "App",
   components: {
     ChatbotModal,
+    ChatbotIcon,
   },
   data: () => ({
     items: [
@@ -133,6 +135,11 @@ export default {
   .container.hau {
     padding: 0 8px;
   }
+}
+
+.hau.hau-chatbot-icon {
+  min-width: 96px;
+  margin-bottom: 32px;
 }
 
 .hau.hau-logo {
