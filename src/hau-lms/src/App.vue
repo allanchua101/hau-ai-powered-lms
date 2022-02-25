@@ -46,7 +46,7 @@
           fab
           dark
           x-large
-          color="#710e1d"
+          color="#CCC"
           v-bind="attrs"
           v-on="on"
           bottom
