@@ -12,8 +12,7 @@
         </h1>
         <v-btn
           class="mx-auto mt-12"
-          color="success"
-          dark
+          color="#ffe680"
           elevation="0"
           x-large
           @click="onStart"
