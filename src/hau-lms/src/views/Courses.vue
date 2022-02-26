@@ -120,6 +120,12 @@ export default {
 $main-color: #202024;
 $secondary-color: #5a5959;
 
+html,
+body .theme--light.v-application {
+  max-height: 100vh;
+  overflow-y: unset;
+}
+
 .hau.hau-courses {
   padding-left: 64px;
   max-width: 920px;

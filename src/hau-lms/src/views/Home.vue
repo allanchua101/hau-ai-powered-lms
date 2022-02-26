@@ -53,13 +53,20 @@ export default {
 $primary-color: #313135;
 $secondary-color: #e1e1e1;
 
+html,
+body .theme--light.v-application {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
 .hau.hau-home-page {
-  min-height: 110vh;
+  min-height: 100vh;
   min-width: 100vw;
   background-color: $primary-color;
 
   .hau.hau-parallax {
     min-height: 100vh;
+    max-height: 100vh;
   }
 
   .hau.hau-home.hau-landing-wrap {
