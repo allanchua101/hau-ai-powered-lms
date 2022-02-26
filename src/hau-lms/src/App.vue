@@ -1,7 +1,7 @@
 <template>
   <v-app class="hau hau--app">
     <!-- Application bar -->
-    <v-app-bar app color="#272727" dark elevation="0">
+    <v-app-bar app color="#313135" dark elevation="0">
       <div class="d-flex align-center">
         <v-tooltip bottom :disabled="isMobile">
           <template v-slot:activator="{ on, attrs }">
@@ -46,7 +46,7 @@
           fab
           dark
           x-large
-          color="#CCC"
+          color="#313135"
           v-bind="attrs"
           v-on="on"
           bottom
@@ -128,7 +128,7 @@ export default {
     padding-top: 72px !important;
 
     &.home-page {
-      padding-top: 54px !important;
+      padding-top: 42px !important;
     }
   }
 

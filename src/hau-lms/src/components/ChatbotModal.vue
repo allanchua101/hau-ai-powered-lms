@@ -6,7 +6,7 @@
     @click:outside="onClose"
   >
     <v-card class="hau hau-chat-dialog mb-0">
-      <v-toolbar dark color="#710e1d" elevation="0">
+      <v-toolbar dark color="#313135" elevation="0">
         <v-avatar color="#313135" class="mr-2 mt-2 mb-2">
           <ChatbotIcon />
         </v-avatar>

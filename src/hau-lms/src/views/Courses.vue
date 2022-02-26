@@ -2,15 +2,13 @@
   <v-container class="hau hau-courses">
     <v-row>
       <v-col cols="12" class="d-flex justify-start">
-        <CourseIcon class="hau hau-course-icon" />
         <h1 class="hau hau-page-title">Let's start learning</h1>
         <v-spacer></v-spacer>
         <v-tooltip left :disabled="isMobile">
           <template v-slot:activator="{ on, attrs }">
             <v-btn
-              class="mx-2"
               dark
-              color="#202024"
+              color="#313135"
               v-bind="attrs"
               v-on="on"
               @click="onSearch"
@@ -68,13 +66,11 @@
 </template>
 
 <script>
-import CourseIcon from "../icons/CoursesIcon";
 import EmptyIcon from "../icons/EmptyIcon";
 import SearchBoxModal from "../components/SearchBoxModal";
 
 export default {
   components: {
-    CourseIcon,
     EmptyIcon,
     SearchBoxModal,
   },
@@ -133,6 +129,10 @@ $secondary-color: #5a5959;
     min-height: 32px;
     max-height: 42px;
     margin-right: 8px;
+
+    & path {
+      stroke: #313135;
+    }
   }
 
   .hau.hau-course-icon path {
@@ -145,6 +145,7 @@ $secondary-color: #5a5959;
     margin-top: 4px;
     margin-bottom: 0;
     padding-bottom: 0;
+    color: #313135;
   }
 
   .hau.hau-course-title {

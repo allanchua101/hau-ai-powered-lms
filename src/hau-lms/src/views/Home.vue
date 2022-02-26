@@ -1,35 +1,41 @@
 <template>
-  <v-container class="hau hau-home-page">
-    <v-row class="hau hau-home hau-landing-wrap text-center">
-      <v-col cols="12">
-        <RobotIcon class="hau hau-icon" />
-        <h1 class="hau hau-message">Advancing the Human Race Through A.I.</h1>
-        <h1 class="hau hau-describe">
-          Our goal is to contribute in addressing the issues of our education
-          system.
-        </h1>
-        <v-btn
-          class="mx-auto mt-12"
-          color="white"
-          elevation="0"
-          x-large
-          @click="onStart"
-        >
-          <v-icon class="mr-2 mt-0">mdi-arrow-right-drop-circle-outline</v-icon>
-          <span class="mt-1">Learn Now</span>
-        </v-btn>
-      </v-col>
-    </v-row>
+  <v-container class="hau hau-home-page pa-0">
+    <v-parallax
+      dark
+      class="hau hau-parallax"
+      src="https://images.unsplash.com/photo-1582592641306-277abdcdbb7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+    >
+      <v-overlay value="true" absolute :opacity="0.8" color="black">
+        <v-row class="hau hau-home hau-landing-wrap text-center">
+          <v-col cols="12">
+            <h1 class="hau hau-message">
+              Advancing the Human Race Through A.I.
+            </h1>
+            <h1 class="hau hau-describe">
+              Our goal is to contribute in addressing the issues of our
+              education system.
+            </h1>
+            <v-btn
+              class="mx-auto mt-12 light-green darken-2"
+              elevation="0"
+              x-large
+              @click="onStart"
+            >
+              <v-icon class="mr-2 mt-0">
+                mdi-arrow-right-drop-circle-outline
+              </v-icon>
+              <span class="mt-1">Learn Now</span>
+            </v-btn>
+          </v-col>
+        </v-row>
+      </v-overlay>
+    </v-parallax>
   </v-container>
 </template>
 
 <script>
-import RobotIcon from "../icons/RobotIcon.vue";
-
 export default {
-  components: {
-    RobotIcon,
-  },
+  components: {},
   methods: {
     onStart() {
       this.$router.push("/courses");
@@ -47,6 +53,10 @@ $secondary-color: #e1e1e1;
   min-width: 100vw;
   background-color: $primary-color;
 
+  .hau.hau-parallax {
+    min-height: 100vh;
+  }
+
   .hau.hau-home.hau-landing-wrap {
     max-width: 95vw;
     margin: auto;
@@ -56,6 +66,7 @@ $secondary-color: #e1e1e1;
       font-size: 24px;
       margin: auto;
       color: white;
+      background-color: rgba(0, 0, 0, 0.4);
     }
 
     .hau.hau-describe {
@@ -66,17 +77,7 @@ $secondary-color: #e1e1e1;
       color: $secondary-color;
       font-weight: 400;
       max-width: 420px;
-    }
-
-    .hau.hau-icon {
-      min-width: 200px;
-      max-width: 200px;
-      margin-top: 32px;
-
-      & path,
-      & rect {
-        fill: $secondary-color;
-      }
+      background-color: rgba(0, 0, 0, 0.4);
     }
   }
 }
