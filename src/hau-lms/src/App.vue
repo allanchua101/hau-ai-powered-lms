@@ -1,7 +1,7 @@
 <template>
   <v-app class="hau hau--app">
     <!-- Application bar -->
-    <v-app-bar app color="#313135" dark elevation="0">
+    <v-app-bar app color="black" dark elevation="0">
       <div class="d-flex align-center">
         <v-tooltip bottom :disabled="isMobile">
           <template v-slot:activator="{ on, attrs }">
