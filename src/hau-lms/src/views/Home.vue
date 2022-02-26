@@ -1,10 +1,6 @@
 <template>
   <v-container class="hau hau-home-page pa-0">
-    <v-parallax
-      dark
-      class="hau hau-parallax"
-      src="https://images.unsplash.com/photo-1582592641306-277abdcdbb7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-    >
+    <v-parallax dark class="hau hau-parallax" :src="bannerUrl">
       <v-overlay value="true" absolute :opacity="0.8" color="black">
         <v-row class="hau hau-home hau-landing-wrap text-center">
           <v-col cols="12">
@@ -39,6 +35,15 @@ export default {
   methods: {
     onStart() {
       this.$router.push("/courses");
+    },
+  },
+  computed: {
+    bannerUrl() {
+      let portName = this.$vuetify.breakpoint.name;
+      let isMobile = portName === "xs" || portName === "sm";
+      let widthQuery = isMobile ? "&w=520" : "&w=1170";
+
+      return `https://images.unsplash.com/photo-1582592641306-277abdcdbb7a?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&q=80${widthQuery}`;
     },
   },
 };

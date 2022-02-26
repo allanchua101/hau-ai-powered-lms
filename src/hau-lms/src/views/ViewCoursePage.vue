@@ -129,6 +129,7 @@ export default {
     return {
       id: null,
       player: null,
+      isCaptureEnabled: false,
     };
   },
   mounted() {
@@ -137,7 +138,7 @@ export default {
     me.id = parseInt(getParameterByName("id"));
     me.$store.dispatch("setActiveCourseID", this.id);
 
-    if (window.annyang) {
+    if (window.annyang && me.isCaptureEnabled) {
       try {
         let commands = {
           "John *anything": async function (text) {
